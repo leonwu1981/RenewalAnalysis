@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GC2" language="groovy" pageWidth="500" pageHeight="595" orientation="Landscape" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="STARTDATE" class="java.util.Date"/>
+	<parameter name="ENDDATE" class="java.util.Date"/>
+	<parameter name="DEPTNAME" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="MANAGECOM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BRANCH" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GRPCONTNO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="APPNTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GEBCLIENT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PLAN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RISKCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ISMEDICAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SALECHNL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AGENTCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DEPTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMMRATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PREM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EARNEDPREM" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CVALIDATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CENDDATE" class="java.lang.String"/>
+	<field name="REPEATBILL" class="java.lang.String"/>
+	<field name="CLAIMTIMES" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REALPAY" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IBNR" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<sortField name="BRANCH"/>
+	<variable name="BRANCHNAME" class="java.lang.String">
+		<variableExpression><![CDATA[( $F{BRANCH}=="8601" ? "北京Beijing" :
+    ( $F{BRANCH}=="8602" ? "广东Guangdong" :
+        ( $F{BRANCH}=="8603" ? "上海Shanghai" :
+            ( $F{BRANCH}=="8604" ? "江苏Jiangsu" :
+                ( $F{BRANCH}=="8605" ? "深圳Shenzhen" :
+                    ( $F{BRANCH}=="8606" ? "辽宁Liaoning" :
+                        ( $F{BRANCH}=="8607" ? "四川Sichuan" :
+                            ( $F{BRANCH}=="8608" ? "陕西Shanxi" :
+                                ( $F{BRANCH}=="8609" ? "山东Shandong" :
+                                    ( $F{BRANCH}=="8610" ? "黑龙江Heilongjiang" : "")
+                                 )
+                             )
+                         )
+                     )
+                 )
+             )
+         )
+     )
+ )]]></variableExpression>
+	</variable>
+	<variable name="EARNEDPREM_1" class="java.math.BigDecimal" resetType="Group" resetGroup="BRANCH" calculation="Sum">
+		<variableExpression><![CDATA[$F{EARNEDPREM}]]></variableExpression>
+	</variable>
+	<variable name="REALPAY_1" class="java.math.BigDecimal" resetType="Group" resetGroup="BRANCH" calculation="Sum">
+		<variableExpression><![CDATA[$F{REALPAY}]]></variableExpression>
+	</variable>
+	<variable name="IBNR_1" class="java.math.BigDecimal" resetType="Group" resetGroup="BRANCH" calculation="Sum">
+		<variableExpression><![CDATA[$F{IBNR}]]></variableExpression>
+	</variable>
+	<variable name="EARNEDPREM_SUM" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{EARNEDPREM}]]></variableExpression>
+	</variable>
+	<variable name="EARNEDPREM_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{EARNEDPREM}]]></variableExpression>
+	</variable>
+	<variable name="REALPAY_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{REALPAY}]]></variableExpression>
+	</variable>
+	<variable name="IBNR_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{IBNR}]]></variableExpression>
+	</variable>
+	<variable name="CVALIDATE" class="java.util.Date">
+		<variableExpression><![CDATA[$F{CVALIDATE}==""? null :(new java.text.SimpleDateFormat("yyyy-MM-dd")).parse($F{CVALIDATE})]]></variableExpression>
+	</variable>
+	<variable name="DEPT_Y" class="java.lang.String">
+		<variableExpression><![CDATA[( $P{DEPTNAME}=="团险业务部" ? "团险业务部" : "" )]]></variableExpression>
+	</variable>
+	<variable name="DEPT_N" class="java.lang.String">
+		<variableExpression><![CDATA[( $P{DEPTNAME}=="团险业务部" ? "关联业务部" : "" )]]></variableExpression>
+	</variable>
+	<filterExpression><![CDATA[$F{ISMEDICAL}=="Y"
+&&$F{CVALIDATE}!="" && $P{STARTDATE}.before( $V{CVALIDATE} ) && $P{ENDDATE}.after( $V{CVALIDATE} )
+&& ( $F{DEPTNAME}==$V{DEPT_Y} || $F{DEPTNAME}!=$V{DEPT_N} )]]></filterExpression>
+	<group name="BRANCH">
+		<groupExpression><![CDATA[$F{BRANCH}]]></groupExpression>
+		<groupFooter>
+			<band height="20">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{BRANCHNAME}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="100" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="200" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="300" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="400" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( ($V{REALPAY_1}+$V{IBNR_1}) / $V{EARNEDPREM_1} )]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[已赚保费earned_prem]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[理赔金额claim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[△IBNR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[理赔率claim ratio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[分公司Branch]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="500" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[医疗险理赔情况 Claim rataios by medical products]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="100" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="200" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="300" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+				<reportElement x="400" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double( ($V{REALPAY_2}+$V{IBNR_2}) / $V{EARNEDPREM_2} )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[团险合计total]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

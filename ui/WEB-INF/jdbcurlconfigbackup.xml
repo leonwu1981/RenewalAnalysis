@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<config>
+  <DBType>6B88F67AEBA8290E</DBType>
+  <IP1>10.0.60.115</IP1>  
+  <Port1>1521</Port1>
+  <IP2>10.0.60.117</IP2>  
+  <Port2>1521</Port2>    
+  <DBName>F94D27CDDCDB5132</DBName>
+  <UserName>3AAD86E5A00F0F8D</UserName>
+  <PassWord>3AAD86E5A00F0F8D</PassWord>
+</config>

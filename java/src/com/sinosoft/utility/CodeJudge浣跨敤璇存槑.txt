@@ -1,0 +1,13 @@
+首先必须包含UTILITY包；
+在“项目规范_约定”的“新旧号码对照.xls”中规定“号码的[12,13]位”为代码类型标志;
+
+类方法：
+String getCodeType( String )：输入含代码字符串，输出代码
+boolean judgeCodeType( String, String )：输入含代码字符串和代码，判断是否正确
+
+例子：
+    CodeJudge.getCodeType("abcdefghijk11asdfasdf");
+    CodeJudge.judgeCodeType("abcdefghijk11asdfasdf", "11") ;
+
+
+CodeJudge.js中的内容已经添加到Z盘的common.js中了

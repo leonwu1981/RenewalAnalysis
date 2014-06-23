@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="claimprogress" language="groovy" pageWidth="742" pageHeight="595" orientation="Landscape" columnWidth="742" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="分公司代码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="团体保单号" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="保单生效日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="保单终止日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人客户号" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="出生年月" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="性别" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人生效日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人终止日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="在职或退休" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="与被保险人的关系" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="计划编码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="计划名称" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人赔案号" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="出险日期" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="住院结束日期" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="住院天数" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="就医医院代码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="就医医院名称" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="医院等级" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="索赔原因" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="申请赔付日期" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="费用项目代码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="费用项目名称" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="费用金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="自费金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="部分自付金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="医保支付金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="索赔项目代码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="索赔项目名称" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="实际赔付金额" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="赔付日期" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="险种代码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="出险时间段" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="理赔时间段" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="理赔延迟时间" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="年份" class="java.lang.String"/>
+	<field name="险种名" class="java.lang.String"/>
+	<sortField name="年份"/>
+	<sortField name="险种代码"/>
+	<variable name="months" class="java.lang.Integer">
+		<variableExpression><![CDATA[$F{赔付日期}==""||$F{保单生效日}==""?18:( ( Integer.parseInt( $F{赔付日期}.substring( 0, 4 ) )- Integer.parseInt( $F{保单生效日}.substring( 0, 4 ) ) )*12 + Integer.parseInt( $F{赔付日期}.substring( 5, 7 ) ) - Integer.parseInt( $F{保单生效日}.substring( 5, 7 ) ) + 1 )]]></variableExpression>
+	</variable>
+	<variable name="variable7" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 7 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable8" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 8 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable9" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 9 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable10" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 10 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable11" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 11 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable12" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 12 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable13" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 13 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable14" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 14 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable15" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 15 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable16" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 16 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable17" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 17 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="variable18" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 18 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="realpay_SUM" class="java.lang.Double" resetType="Group" resetGroup="RiskCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{实际赔付金额}]]></variableExpression>
+	</variable>
+	<variable name="v7" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 7 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v8" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 8 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v9" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 9 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v10" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 10 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v11" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 11 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v12" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 12 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v13" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 13 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v14" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 14 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v15" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 15 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v16" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 16 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v17" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 17 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="v18" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[( $V{months} <= 18 ) ? $F{实际赔付金额} : 0]]></variableExpression>
+	</variable>
+	<variable name="realpay_SUM_1" class="java.lang.Double" resetType="Group" resetGroup="Year" calculation="Sum">
+		<variableExpression><![CDATA[$F{实际赔付金额}]]></variableExpression>
+	</variable>
+	<filterExpression><![CDATA[$F{险种代码}=="NIK01"
+|| $F{险种代码}=="NIK02"
+|| $F{险种代码}=="NIK12"
+|| $F{险种代码}=="NIK03"
+|| $F{险种代码}=="NIK07"
+|| $F{险种代码}=="NIK08"
+|| $F{险种代码}=="NIK09"
+|| $F{险种代码}=="MIK01"
+|| $F{险种代码}=="MOK01"
+|| $F{险种代码}=="MKK01"]]></filterExpression>
+	<group name="Year">
+		<groupExpression><![CDATA[$F{年份}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<staticText>
+					<reportElement x="53" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[7]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="106" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[8]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="159" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[9]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="212" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[10]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="265" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[11]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="318" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[12]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[13]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="424" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[14]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="477" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[15]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="530" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[16]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="583" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[17]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="636" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[18]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="689" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="0" width="53" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{年份}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="53" y="0" width="689" height="20"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[保单经过月份的理赔/该保单总的理赔Accumulated paid medical claim after number of month/total medical claim]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="20" width="53" height="20"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[ 保单经过月数 after number of month]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="40">
+				<staticText>
+					<reportElement x="0" y="0" width="53" height="20"/>
+					<textElement>
+						<font fontName="Arial Black" isBold="true"/>
+					</textElement>
+					<text><![CDATA[All Risk]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="53" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v7}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="106" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v8}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="159" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v9}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="212" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v10}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="265" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v11}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="318" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v12}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="371" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v13}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="424" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v14}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="477" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v15}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="530" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v16}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="583" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v17}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="636" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{v18}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="689" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double(1)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="689" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{realpay_SUM_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="53" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v7}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="106" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v8}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="159" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v9}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="212" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v10}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="265" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v11}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="318" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v12}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="371" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v13}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="424" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v14}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="477" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v15}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="530" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v16}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="583" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v17}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="636" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{v18}.doubleValue() / $V{realpay_SUM_1}.doubleValue() )]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="RiskCode">
+		<groupExpression><![CDATA[$F{险种代码}]]></groupExpression>
+		<groupFooter>
+			<band height="40">
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="53" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable7}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="106" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable8}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="159" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable9}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="212" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable10}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="265" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable11}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="318" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable12}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="371" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable13}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="424" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable14}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="477" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable15}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="530" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable16}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="583" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable17}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="636" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{variable18}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="53" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable7}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="106" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable8}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="159" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable9}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="212" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable10}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="265" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable11}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="318" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable12}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="371" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable13}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="424" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable14}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="477" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable15}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="530" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable16}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="583" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable17}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="636" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( $V{variable18}.doubleValue() / $V{realpay_SUM}.doubleValue() )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="689" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{realpay_SUM}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="#,##0 %">
+					<reportElement x="689" y="20" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double( 1 )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="53" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{险种名}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

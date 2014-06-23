@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PREMSIZE_DS" language="groovy" pageWidth="1000" pageHeight="595" orientation="Landscape" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="MANAGECOM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BRANCH" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GRPCONTNO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="APPNTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GEBCLIENT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PLAN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RISKCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ISMEDICAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SALECHNL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AGENTCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DEPTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMMRATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PREM" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EARNEDPREM" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CVALIDATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CENDDATE" class="java.lang.String"/>
+	<field name="REPEATBILL" class="java.lang.String"/>
+	<field name="CLAIMTIMES" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REALPAY" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IBNR" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<sortField name="GRPCONTNO"/>
+	<variable name="REALPAY_1" class="java.math.BigDecimal" resetType="Group" resetGroup="GRPCONTNO" calculation="Sum">
+		<variableExpression><![CDATA[$F{REALPAY}]]></variableExpression>
+	</variable>
+	<variable name="EARNEDPREM_1" class="java.math.BigDecimal" resetType="Group" resetGroup="GRPCONTNO" calculation="Sum">
+		<variableExpression><![CDATA[$F{EARNEDPREM}]]></variableExpression>
+	</variable>
+	<variable name="IBNR_1" class="java.math.BigDecimal" resetType="Group" resetGroup="GRPCONTNO" calculation="Sum">
+		<variableExpression><![CDATA[$F{IBNR}]]></variableExpression>
+	</variable>
+	<variable name="PREM_1" class="java.math.BigDecimal" resetType="Group" resetGroup="GRPCONTNO" calculation="Sum">
+		<variableExpression><![CDATA[$F{PREM}]]></variableExpression>
+	</variable>
+	<variable name="GBECLIENT" class="java.lang.String">
+		<variableExpression><![CDATA[$F{DEPTNAME}=="关联业务部"?"2":$F{GEBCLIENT}]]></variableExpression>
+	</variable>
+	<group name="GRPCONTNO">
+		<groupExpression><![CDATA[$F{GRPCONTNO}]]></groupExpression>
+		<groupFooter>
+			<band height="50">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{BRANCH}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DEPTNAME}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{GRPCONTNO}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="500" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="400" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="600" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="700" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{PREM_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="800" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CVALIDATE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{GBECLIENT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="900" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CENDDATE}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+</jasperReport>

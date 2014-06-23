@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+	<context-param>
+		<param-name>weblogic.httpd.inputCharset./*</param-name>
+		<param-value>GBK</param-value>/
+	</context-param>
+	  
+<init-param>
+    <param-name>log4j-init-file</param-name>
+    <param-value>WEB-INF/classes/log4j.properties</param-value>
+  </init-param>
+	<mime-mapping>
+		<extension>doc</extension>
+		<mime-type>application/msword</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xls</extension>
+		<mime-type>application/msexcel</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>pdf</extension>
+		<mime-type>application/pdf</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>htc</extension>
+		<mime-type>Text/x-component</mime-type>
+	</mime-mapping>
+	<welcome-file-list>
+		<welcome-file>indexlis.jsp</welcome-file>
+	</welcome-file-list>
+	<jsp-config>
+		<jsp-property-group>
+			<description>jsp encoding example</description>
+			<display-name>JSPConfiguration</display-name>
+			<url-pattern>*.jsp</url-pattern>
+			<el-ignored>true</el-ignored>
+			<page-encoding>GBK</page-encoding>
+			<scripting-invalid>false</scripting-invalid>
+			<include-prelude></include-prelude>
+			<include-coda></include-coda>
+		</jsp-property-group>
+	</jsp-config>
+	<resource-ref id="ResourceRef_1124580330140">
+		<res-ref-name>MyPool</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	
+	     <!-- 单点登录 -->   
+    
+        <filter>
+		<filter-name>CAS Authentication Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
+		<init-param>
+			<param-name>casServerLoginUrl</param-name>
+			<param-value>http://gcdclx01:8080/cas/login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>renew</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>gateway</param-name>
+			<param-value>false</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://10.0.61.141:8080</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>CAS Validation Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</filter-class>
+		<init-param>
+			<param-name>casServerUrlPrefix</param-name>
+			<param-value> http://gcdclx01:8080/cas/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://10.0.61.141:8080</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CAS Authentication Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>CAS Validation Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+    
+    <!-- 单点登录 -->   
+	
+	
+	
+	
+	
+	
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>filters.SetCharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  <filter>
+    <filter-name>Check Session</filter-name>
+    <filter-class>com.sinosoft.filters.SessionFilter</filter-class>
+    
+    
+ 
+   <init-param>
+     <param-name>excludePageNum</param-name>
+     <param-value>10</param-value>
+    </init-param>
+    <init-param>
+     <param-name>page0</param-name>
+     <param-value>/indexlis.jsp</param-value>
+    </init-param>
+      <!--
+    <init-param>
+       <param-name>page1</param-name>
+       <param-value>/index.jsp</param-value>
+     </init-param>      
+       -->   
+    <init-param>
+     <param-name>page1</param-name>
+     <param-value>/logon/Title.jsp</param-value>
+    </init-param>
+    <init-param>
+     <param-name>page2</param-name>
+     <param-value>/common/cvar/CVarData.jsp</param-value>
+    </init-param>
+    <init-param>
+     <param-name>page3</param-name>
+     <param-value>/common/cvar/CExec.jsp</param-value>
+    </init-param>
+    <init-param>
+     <param-name>page4</param-name>
+     <param-value>/logon/menutop.jsp</param-value>
+    </init-param>
+    <init-param>
+     <param-name>page5</param-name>
+     <param-value>/logon/quick.jsp</param-value>
+    </init-param>
+    <init-param>
+       <param-name>page6</param-name>
+       <param-value>/logon/main.jsp</param-value>
+     </init-param>
+    <init-param>
+       <param-name>page7</param-name>
+       <param-value>/logon/LogonSubmit.jsp</param-value>
+     </init-param>
+		<init-param>
+       <param-name>page8</param-name>
+       <param-value>/easyscan/*.jsp</param-value>
+     </init-param>
+    <init-param>
+       <param-name>page9</param-name>
+       <param-value>/logon/logout.jsp</param-value>
+     </init-param>
+  </filter>
+    <filter-mapping>
+    <filter-name>Check Session</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>	
+  
+  <servlet>
+    <servlet-name>ReportBackRun</servlet-name>
+    <servlet-class>com.sinosoft.lis.servlet.ReportAction</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReportManageAction</servlet-name>
+  	<servlet-class>com.sinosoft.lis.servlet.ReportManageAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReportBackRun</servlet-name>
+    <url-pattern>/report.do</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>ReportManageAction</servlet-name>
+    <url-pattern>/reportmanage.do</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,20 @@
+2002.9.30:tjj -- Reflections.java
+2002.10.3:hubo -- CodeJudge.java,附带使用说明
+2002.10.3:yt --
+更新一下下面的类,(在utility目录下).
+我修改了如下地方:
+1.SysConst.java中的  	public static final boolean CHANGECHARSET = false; // Unicode to GBK
+	原来该产量为true;
+2.StrTool.java中的      GBKToUnicode函数,在函数入口加入了下面的代码:
+    if (SysConst.CHANGECHARSET ==false)
+    {
+      return unicodeToGBK(strOriginal);
+    }
+2002.10.8:hst -- SysConst.java
+2002.10.8 : kevin -- DBConn.java, DBConnPool.java
+2002.10.12: tjj -- Reflections.java
+2002.10.12: hst -- SQLString.java
+2002.10.14: hst -- ExeSQL.java
+2002.10.17: hst -- ExeSQL.java
+2002.10.17: hst -- DBOper.java
+2002.10.31: hzm -- TransferData.java

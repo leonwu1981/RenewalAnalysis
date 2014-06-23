@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<Models>
+	<Model id="summary_balance" name="余额汇总表" source="select * from summary_balance">
+		<!--
+		说明: 1. @id 是数据源模型的唯一标识
+			  2. @name 为描述数据源
+			  3. @source 为来源列,通常是一个表,也可以是多表,可以只选择需要的列
+			  
+	-->
+		<Column name="center_code" desc="核算单位" treeMode="$sql(select name,code from center_code where flag=1)" />
+		<Column name="acc_book_type" desc="帐套类型" treeMode="$sql(select acc_type_name,acc_book_type from account_type where $center_code=$center_code)"></Column>
+		<Column name="acc_book_code" desc="帐套编码" treeMode="$sql(select acc_book_name,acc_book_code from account_book where acc_book_type=$acc_book_type and $center_code=$center_code)"></Column>
+		<Column name="year_month" desc="会计月度" treeMode="$input(Dec(6,0))"></Column>
+		<Column name="item_code" desc="会计科目" treeMode="$sql(select item_name,item_code from item_define where acc_book_code=$acc_book_code and acc_book_type=$acc_book_type and center_code=$center_code)"></Column>
+		<Column name="direction_idx" desc="核算方向" treeMode="$plugins(com.sinosoft.xreport.DirectionIdx.getTree($item_code))"></Column>
+		<Column name="balance_kind" desc="余额类型" treeMode=""></Column>
+		<Column name="currency" desc="币别" treeMode="$fix(1-人民币,2-美元)"></Column>
+		<Column name="debit_source" desc="原币借方发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="credit_source" desc="原币贷方发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="debit_sour_jd" desc="原币借方季度发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="credit_sour_jd" desc="原币贷方季度发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="debit_sour_lj" desc="原币借方累计发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="credit_sour_lj" desc="原币贷方累计发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="debit_dest" desc="本位币借方发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="credit_dest" desc="本位币贷方发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="debit_dest_jd" desc="本位币借方季度发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="credit_dest_jd" desc="本位币贷方季度发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="debit_dest_lj" desc="本位币借方累计发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="credit_dest_lj" desc="本位币贷方累计发生额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="balance_sour" desc="原币余额" treeMode="$input(Dec(14,2))"></Column>
+		<Column name="balance_dest" desc="本位币余额" treeMode="$input(Dec(14,2))"></Column>
+		<!--
+			说明: 1.表的每列包括对应的列名,中文描述,和辅助显示模式treeModel
+				  2.treeModel目的是提示和校验用户录入
+				  3.$sql()为简单的联表取代码和名称,列出列表框供用户选择
+				  4.$input()为用户录入模式,Dec()为录入格式
+				  5.$fix()为固定几个选项
+				  6.$plugins()为用户自己实现的类,可以任意更改,只需要满足treeModel接口
+				    提示显示和供用户选择.如direction_idx可以为一个树形的提示窗口
+				    $sql,$input,$fix都可以视为系统系统实现的插件,但是也可更改.
+				  7.如acc_book_code由acc_book_type确定,如果acc_book_type不在全局变量中,
+				  则提示acc_book_type用户选择
+				  8.
+		-->
+	</Model>
+	<Relations>
+		<Relation>aux_fee.s01=summare_direction.f01</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s02=summare_direction.f02</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s03=summare_direction.f03</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s04=summare_direction.f04</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s05=summare_direction.f05</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s06=summare_direction.f06</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s07=summare_direction.f07</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s08=summare_direction.f08</Relation>
+	</Relations>
+	<Relations>
+		<Relation>aux_fee.s09=summare_direction.f09</Relation>
+	</Relations>
+	<!--
+		1.必须对不同的数据源(表)建立关联,以便用户在选择一个条件后和所有的数据源匹配.
+		2.这种关联是一个图,可以采用邻节点等方式存储
+		3.费用表,损益明细表等多个数据源必须确定使用的条件(!!!)
+	-->
+	
+	<!--
+		损益明细表中.佣金支出的direction_idx比其它的多一级,需要在数据的单元格选择一级
+		与其它条件拼接.
+	-->
+	
+	
+</Models>

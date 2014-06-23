@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="GB2312"?>
+<DBConfig>
+<!--
+    <db name="报表">
+        <driverclassname>com.inet.tds.TdsDriver</driverclassname>
+        <drivername>inetdae</drivername>
+        <serverhost>172.16.120.95</serverhost>
+        <serviceport>1433</serviceport>
+        <databasename>report</databasename>
+        <servername>@charset=gb2312</servername>  //sqlserver中将这个用作属性字段,@分隔,会自动替换为&
+        <username>sa</username>
+        <userpassword></userpassword>        
+	<minconnection>0</minconnection>	
+	<maxconnection>50</maxconnection>	
+	<timeout>600000</timeout>	
+	<waittime>30000</waittime>
+    </db>
+    <db name="业务">
+        <driverclassname>com.inet.tds.TdsDriver</driverclassname>
+        <drivername>inetdae</drivername>
+        <serverhost>172.16.120.95</serverhost>
+        <serviceport>1433</serviceport>
+        <databasename>hongkong</databasename>
+        <servername>@charset=gb2312</servername>
+        <username>sa</username>
+        <userpassword></userpassword>       
+	<minconnection>0</minconnection>
+	<maxconnection>50</maxconnection>
+	<timeout>600000</timeout>
+	<waittime>30000</waittime>
+    </db>
+-->
+<!--
+    <db name="报表">
+        <driverclassname>oracle.jdbc.driver.OracleDriver</driverclassname>
+        <drivername>oracle:thin</drivername>
+        <serverhost>172.16.120.250</serverhost>
+        <serviceport>1521</serviceport>
+        <databasename>ORCL</databasename>
+        <servername>250</servername>
+        <username>report</username>
+        <userpassword>report</userpassword>        
+	<minconnection>0</minconnection>
+	<maxconnection>50</maxconnection>	
+	<timeout>600000</timeout>
+	<waittime>30000</waittime>
+    </db>
+    <db name="业务">
+        <driverclassname>oracle.jdbc.driver.OracleDriver</driverclassname>
+        <drivername>oracle:thin</drivername>
+        <serverhost>172.16.120.250</serverhost>
+        <serviceport>1521</serviceport>
+        <databasename>ORCL</databasename>
+        <servername>250</servername>
+        <username>account</username>
+        <userpassword>account</userpassword>
+	<minconnection>0</minconnection>	
+	<maxconnection>50</maxconnection>
+	<timeout>600000</timeout>	
+	<waittime>30000</waittime>
+    </db>
+-->
+
+
+    <db name="报表">
+        <driverclassname>com.informix.jdbc.IfxDriver</driverclassname>
+        <drivername>informix-sqli</drivername>
+        <serverhost>172.16.120.208</serverhost>
+        <serviceport>6670</serviceport>
+        <databasename>report</databasename>
+        <servername>acc_shm</servername>
+        <username>claf</username>
+        <userpassword>claf</userpassword>
+	<minconnection>0</minconnection>	
+	<maxconnection>50</maxconnection>	
+	<timeout>600000</timeout>	
+	<waittime>30000</waittime>
+    </db>
+    <db name="业务">
+        <driverclassname>com.informix.jdbc.IfxDriver</driverclassname>
+        <drivername>informix-sqli</drivername>
+        <serverhost>172.16.120.208</serverhost>
+        <serviceport>6670</serviceport>
+        <databasename>account</databasename>
+        <servername>acc_shm</servername>
+        <username>claf</username>
+        <userpassword>claf</userpassword>       
+	<minconnection>0</minconnection>
+	<maxconnection>50</maxconnection>
+	<timeout>600000</timeout>	
+	<waittime>30000</waittime>
+    </db>
+
+</DBConfig>

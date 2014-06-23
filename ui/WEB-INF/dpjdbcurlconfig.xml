@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<config> 
+  <DBType>ORACLE</DBType>  
+  <IP1>10.0.60.123</IP1>  
+  <Port1>1521</Port1> 
+  <DBName>DATAWARE</DBName>  
+  <UserName>circedi</UserName>  
+  <PassWord>circedi</PassWord> 
+</config>

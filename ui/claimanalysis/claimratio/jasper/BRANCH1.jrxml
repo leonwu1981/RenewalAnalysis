@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GC1" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="BRANCH" class="java.lang.String"/>
+	<parameter name="DEPTNAME" class="java.lang.String"/>
+	<parameter name="STARTDATE" class="java.util.Date"/>
+	<parameter name="ENDDATE" class="java.util.Date"/>
+	<parameter name="NAME" class="java.lang.String"/>
+	<parameter name="NAME_EN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="MANAGECOM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BRANCH" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GRPCONTNO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="APPNTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GEBCLIENT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PLAN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RISKCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ISMEDICAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SALECHNL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AGENTCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DEPTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMMRATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PREM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EARNEDPREM" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CVALIDATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CENDDATE" class="java.lang.String"/>
+	<field name="REPEATBILL" class="java.lang.String"/>
+	<field name="CLAIMTIMES" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REALPAY" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IBNR" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="EARNEDPREM_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{EARNEDPREM}]]></variableExpression>
+	</variable>
+	<variable name="REALPAY_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{REALPAY}]]></variableExpression>
+	</variable>
+	<variable name="IBNR_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{IBNR}]]></variableExpression>
+	</variable>
+	<variable name="EARNEDPREM_GEB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[( ( $F{GEBCLIENT}=="1" && $F{DEPTNAME}=="团险业务部" ) ? $F{EARNEDPREM} : 0 )]]></variableExpression>
+	</variable>
+	<variable name="EARNEDPREM_NONGEB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[( ($F{GEBCLIENT}=="2" && $F{DEPTNAME}=="团险业务部" )? $F{EARNEDPREM} : 0 )]]></variableExpression>
+	</variable>
+	<variable name="REALPAY_GEB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[( ($F{GEBCLIENT}=="1" && $F{DEPTNAME}=="团险业务部") ? $F{REALPAY} : 0 )]]></variableExpression>
+	</variable>
+	<variable name="REALPAY_NONGEB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[( ($F{GEBCLIENT}=="2" && $F{DEPTNAME}=="团险业务部") ? $F{REALPAY} : 0 )]]></variableExpression>
+	</variable>
+	<variable name="IBNR_GEB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[( ($F{GEBCLIENT}=="1" && $F{DEPTNAME}=="团险业务部")? $F{IBNR} : 0 )]]></variableExpression>
+	</variable>
+	<variable name="IBNR_NONGEB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[( ($F{GEBCLIENT}=="2" && $F{DEPTNAME}=="团险业务部") ? $F{IBNR} : 0 )]]></variableExpression>
+	</variable>
+	<variable name="CVALIDATE" class="java.util.Date">
+		<variableExpression><![CDATA[$F{CVALIDATE}==""? null :(new java.text.SimpleDateFormat("yyyy-MM-dd")).parse($F{CVALIDATE})]]></variableExpression>
+	</variable>
+	<variable name="EARNEDPREM_CAPTIVE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DEPTNAME}=="关联业务部" ? $F{EARNEDPREM} : 0 ]]></variableExpression>
+	</variable>
+	<variable name="REALPAY_CAPTIVE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DEPTNAME}=="关联业务部"? $F{REALPAY} : 0]]></variableExpression>
+	</variable>
+	<variable name="IBNR_CAPTIVE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DEPTNAME}=="关联业务部" ? $F{IBNR} : 0]]></variableExpression>
+	</variable>
+	<filterExpression><![CDATA[$F{BRANCH}.startsWith( $P{BRANCH} ) && $F{CVALIDATE}!="" && $P{STARTDATE}.before( $V{CVALIDATE} ) && $P{ENDDATE}.after( $V{CVALIDATE} )]]></filterExpression>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="60" width="842" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GEB vs NON-GEB 总体理赔情况 Overall Claim ratios by GEB vs NON_GEB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="842" height="20"/>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="900" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="900" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{NAME_EN}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[团险Non-Geb]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[团险Geb]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[团险合计]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="100" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_GEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="100" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_NONGEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="100" y="80" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_GEB}+$V{EARNEDPREM_NONGEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="200" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_GEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="200" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_NONGEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="200" y="80" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_GEB}+$V{REALPAY_NONGEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="300" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_GEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="300" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_NONGEB}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="300" y="80" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_GEB}+$V{IBNR_NONGEB}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0 %">
+				<reportElement x="400" y="80" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[($V{EARNEDPREM_NONGEB}+$V{EARNEDPREM_GEB}) == 0 ? 0 : new Double( ($V{REALPAY_NONGEB}+$V{IBNR_NONGEB}+$V{REALPAY_GEB}+$V{IBNR_GEB})/($V{EARNEDPREM_NONGEB}+$V{EARNEDPREM_GEB}) )]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0 %">
+				<reportElement x="400" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{EARNEDPREM_GEB} == 0 ? 0 : new Double( ($V{REALPAY_GEB}+$V{IBNR_GEB})/$V{EARNEDPREM_GEB} )]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0 %">
+				<reportElement x="400" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{EARNEDPREM_NONGEB} == 0 ? 0 : new Double( ($V{REALPAY_NONGEB}+$V{IBNR_NONGEB})/$V{EARNEDPREM_NONGEB} )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[已赚保费earned_prem]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[理赔金额claim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[△IBNR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[理赔率claim ratio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[关联Capitive]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="100" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_CAPTIVE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="200" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_CAPTIVE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="300" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_CAPTIVE}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0 %">
+				<reportElement x="400" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{EARNEDPREM_CAPTIVE} == 0 ? 0 : new Double( ($V{REALPAY_CAPTIVE}+$V{IBNR_CAPTIVE})/$V{EARNEDPREM_CAPTIVE} )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="100" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[合计total]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="300" y="100" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{IBNR_GEB}+$V{IBNR_NONGEB}+$V{IBNR_CAPTIVE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="100" y="100" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{EARNEDPREM_GEB}+$V{EARNEDPREM_NONGEB}+$V{EARNEDPREM_CAPTIVE}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0 %">
+				<reportElement x="400" y="100" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[($V{EARNEDPREM_NONGEB}+$V{EARNEDPREM_GEB}+$V{EARNEDPREM_CAPTIVE}) == 0 ? 0 : new Double( ($V{REALPAY_NONGEB}+$V{IBNR_NONGEB}+$V{REALPAY_GEB}+$V{IBNR_GEB}+$V{REALPAY_CAPTIVE}+$V{IBNR_CAPTIVE})/($V{EARNEDPREM_NONGEB}+$V{EARNEDPREM_GEB}+$V{EARNEDPREM_CAPTIVE}) )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement x="200" y="100" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{REALPAY_GEB}+$V{REALPAY_NONGEB}+$V{REALPAY_CAPTIVE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="120" width="842" height="20"/>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

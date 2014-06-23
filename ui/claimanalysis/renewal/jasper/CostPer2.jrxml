@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="人均费用2" language="groovy" pageWidth="2400" pageHeight="595" orientation="Landscape" columnWidth="2400" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="分公司代码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="团体保单号" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="保单生效日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="保单终止日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="是否续保" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="投保单位" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="投保单位部门" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="单位性质" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="行业类别" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="主营业务" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人客户号" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人姓名" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人生效日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人终止日" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="被保险人职业等级" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="在职或退休" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="与被保险人的关系" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="出生年月" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="性别" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="计划编码" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="计划名称" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="险种" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="责任" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="保额" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="保费" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="起付线" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="日药费限额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="日费用限额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="日床位费限额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="日检查费限额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="赔付比例" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="意外赔付比例" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="服务机构" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="年龄" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="年龄段" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="曝光数" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="曝光数2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="费用金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="自费金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="部分自付金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="医保支付金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="实际赔付金额" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="门诊就诊次数" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="就诊次数" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="就诊人数" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="住院天数" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="保全类型" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="年份" class="java.lang.String"/>
+	<field name="险种名" class="java.lang.String"/>
+	<field name="责任名" class="java.lang.String"/>
+	<sortField name="团体保单号"/>
+	<sortField name="计划编码"/>
+	<sortField name="险种"/>
+	<sortField name="责任"/>
+	<variable name="曝光数_1" class="java.lang.Double" resetType="Group" resetGroup="DutyCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{曝光数}]]></variableExpression>
+	</variable>
+	<variable name="实际赔付金额_1" class="java.lang.Double" resetType="Group" resetGroup="DutyCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{实际赔付金额}==""?0:Double.parseDouble($F{实际赔付金额})]]></variableExpression>
+	</variable>
+	<variable name="就诊人数_1" class="java.lang.Integer" resetType="Group" resetGroup="DutyCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{就诊人数}]]></variableExpression>
+	</variable>
+	<variable name="就诊次数_1" class="java.lang.Integer" resetType="Group" resetGroup="DutyCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{就诊次数}==""?0:Integer.parseInt($F{就诊次数})]]></variableExpression>
+	</variable>
+	<variable name="住院天数_1" class="java.lang.Integer" resetType="Group" resetGroup="DutyCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{住院天数}]]></variableExpression>
+	</variable>
+	<variable name="曝光数_SUM" class="java.lang.Double" resetType="Group" resetGroup="DutyCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{曝光数}]]></variableExpression>
+	</variable>
+	<variable name="保额_1" class="java.lang.Double" resetType="Group" resetGroup="DutyCode" calculation="Sum">
+		<variableExpression><![CDATA[$F{保额}]]></variableExpression>
+	</variable>
+	<filterExpression><![CDATA[$F{计划编码}!="" && $F{曝光数}>0]]></filterExpression>
+	<group name="GrpContNo">
+		<groupExpression><![CDATA[$F{团体保单号}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement x="0" y="0" width="200" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{团体保单号}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="PlanCode">
+		<groupExpression><![CDATA[$F{计划编码}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement x="200" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{计划编码}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="RiskCode">
+		<groupExpression><![CDATA[$F{险种}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement x="300" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{险种}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="DutyCode">
+		<groupExpression><![CDATA[$F{责任}]]></groupExpression>
+		<groupFooter>
+			<band height="50">
+				<textField>
+					<reportElement x="400" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{责任}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0.00">
+					<reportElement x="500" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{曝光数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0.00">
+					<reportElement x="600" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{实际赔付金额_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="700" y="0" width="200" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{就诊人数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="900" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{就诊次数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0">
+					<reportElement x="1000" y="0" width="200" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{住院天数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+					<reportElement x="1200" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{曝光数_1}==0?0:$V{就诊人数_1} / $V{曝光数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0.00">
+					<reportElement x="1300" y="0" width="200" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{就诊人数_1}==0?0:$V{就诊次数_1} / $V{就诊人数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0.00">
+					<reportElement x="1500" y="0" width="200" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{就诊次数_1}==0?0:$V{住院天数_1} / $V{就诊次数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0.00">
+					<reportElement x="1700" y="0" width="200" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{就诊次数_1}==0?0:$V{实际赔付金额_1}/$V{就诊次数_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="###0.00">
+					<reportElement x="1900" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{曝光数_1}==0?0:$V{实际赔付金额_1}/$V{曝光数_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="2100" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{赔付比例}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="2000" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{保额_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="2200" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{险种名}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="2300" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{责任名}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="500" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[暴露数Exposure]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[理赔金额Claim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="40" width="200" height="20"/>
+				<textElement/>
+				<text><![CDATA[发生理赔人数number of claimant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="900" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[就诊次数Visits]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1000" y="40" width="200" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[住院天数住院天数days of stay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1200" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[发生率incidence]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1300" y="40" width="200" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[平均就诊次数 Ave.visit per claimant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1500" y="40" width="200" height="20"/>
+				<textElement/>
+				<text><![CDATA[平均每次住院天数 Ave.days per stay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1700" y="40" width="200" height="20"/>
+				<textElement/>
+				<text><![CDATA[每次理赔金额Claim per visit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1900" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[人均费用Risk cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[责任DutyCode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[险种RiskCode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[计划plan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="200" height="20"/>
+				<textElement/>
+				<text><![CDATA[团体保单号GrpContNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2000" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[保额 Amnt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2100" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[赔付比例 PayRatio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2200" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[险种名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2300" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[责任名]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
