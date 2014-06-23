@@ -233,8 +233,6 @@ public class RenewalAnalysisBL {
     	};
     	
     	String endDate = "2014-05-31";
-    	
-    	String rickcode = "NIK07,NIK10";
 
     	for (int i = 0; i < path.length; i++) {
     		RenewalAnalysisBL ra = new RenewalAnalysisBL();
@@ -267,7 +265,7 @@ public class RenewalAnalysisBL {
     		
     		// 1.下载数据
     		//insurance,险种名称，传人格式String 类型，用","分开险种名称
-    		ra.downloadData(filePath,rickcode);
+    		ra.downloadData(filePath,null);
     		// 2.生成报表
     		ra.createReport(filePath, jasperPath, null, null, null );
     		// 3.生成预测理赔
