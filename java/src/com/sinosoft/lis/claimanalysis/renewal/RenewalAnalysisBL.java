@@ -224,15 +224,20 @@ public class RenewalAnalysisBL {
     	
     	
     	String[] path = {
-    			"阿迪达斯"
+    			"阿迪达斯商务服务（大连）有限公司"
 
     			};
     	String[] grpconts = {
-    			"86200796803,86200796802,86200796801,86200796800,86200796903,86200796902,86200796901,86200796900,86200796603,86200796602,86200796601,86200796600"
+    			"880007427,880007426,880007425,880007424,880007423,88001075400,88001075401"
     			
     	};
     	
     	String endDate = "2014-05-31";
+    	
+    	String[] orgs = {
+    			"003|003|003|003|003|%|%"
+    			
+    	};
 
     	for (int i = 0; i < path.length; i++) {
     		RenewalAnalysisBL ra = new RenewalAnalysisBL();
@@ -255,7 +260,7 @@ public class RenewalAnalysisBL {
 //    		ra.mEndDate = endDate[i];
     		ra.mEndDate = endDate;
     		
-    		ra.orgs = null;
+    		ra.orgs = orgs[i];
     		
     		ClaimPredictBL test;
     		String id = ra.mEndDate.replaceAll( "-", "" );
