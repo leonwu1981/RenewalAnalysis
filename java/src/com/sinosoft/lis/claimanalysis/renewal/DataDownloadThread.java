@@ -1498,7 +1498,14 @@ public class DataDownloadThread implements Runnable {
 					claimInfo.setPayable(claimInfo.getExpenseAmnt()-claimInfo.getOwnExpenseAmnt()-claimInfo.getPartExpenseAmnt()-claimInfo.getSsExpenseAmnt());
 					claimInfo.setSsScope(claimInfo.getExpenseAmnt()-claimInfo.getOwnExpenseAmnt()-claimInfo.getPartExpenseAmnt());
 				}
-				list.add(claimInfo);
+				
+				Date t1 = FormatConverter.getDate("2014-7-1");
+				Date t2 = FormatConverter.getDate("2014-9-30");
+				if(claimInfo.getPayDate()!=null&&claimInfo.getPayDate().compareTo(t1)>=0&&claimInfo.getPayDate().compareTo(t2)<=0){
+					list.add(claimInfo);
+				}
+				
+//				list.add(claimInfo);
 			}while( tmpSSRS!=null && tmpSSRS.getMaxRow()>0 && i<=tmpSSRS.getMaxRow());
 			
 			
